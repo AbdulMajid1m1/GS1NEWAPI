@@ -6,20 +6,18 @@ import rootRoute from "./router/rootRoute.js";
 const app = express();
 const corsOptions = {
   exposedHeaders: ['Content-Length', 'Authorization'],
-  origin: [
-    // 'http://localhost:3000',
-    'http://localhost:3006',
-
-  ],
+  origin: true,
   credentials: true
 };
 app.use(cors(corsOptions));
+
+
 app.use(cookieParser());
 const uploadFolder = path.join(process.cwd(), "uploads"); // get the absolute path to the uploads folder
 app.use("/uploads", express.static(uploadFolder));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })) //Parse URL-encoded bodies
-const PORT = process.env.PORT || 7070;
+const PORT = process.env.PORT || 7000;
 
 app.use("/api", rootRoute)
 const server = app.listen(PORT, () => {

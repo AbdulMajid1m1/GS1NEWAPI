@@ -1,4 +1,4 @@
-import { pool1, pool2 } from "../config/connection.js";
+import { pool1 } from "../config/connection.js";
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
@@ -17,7 +17,6 @@ const saltRounds = 10;
 export {
   pool1,
   sql,
-  pool2,
   bcrypt,
   jwt,
   dotenv,
